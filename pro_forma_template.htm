@@ -1,0 +1,447 @@
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="widget_action.js"></script>
+	<script type="text/javascript" src="resources.js"></script>
+	<title>PRO-FORMA INVOICE</title>
+	<style>
+		body {
+			background: rgb(204, 204, 204);
+		}
+
+		div {
+			background: white;
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 0.5cm;
+			/*box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);*/
+		}
+
+		div[size="A4"] {
+			width: 21cm;
+			height: 29.5cm;
+		}
+
+		div[size="A4"][layout="landscape"] {
+			width: 29.7cm;
+			height: 21cm;
+		}
+
+		div[size="A3"] {
+			width: 29.7cm;
+			height: 42cm;
+		}
+
+		div[size="A3"][layout="landscape"] {
+			width: 42cm;
+			height: 29.7cm;
+		}
+
+		div[size="A5"] {
+			width: 14.8cm;
+			height: 21cm;
+		}
+
+		div[size="A5"][layout="landscape"] {
+			width: 21cm;
+			height: 14.8cm;
+		}
+
+		@media print {
+
+			body,
+			div {
+				margin: 0;
+				box-shadow: 0;
+			}
+
+			#action_buttons,
+			#action_buttons>* {
+				display: none;
+			}
+		}
+
+		.i_podetailstbl {
+			width: 100%;
+		}
+
+		#detailstbl>tbody>tr>td:nth-child(odd) {
+			width: 1.2cm;
+		}
+
+		.i_gendetailstbl {
+			width: 100%;
+		}
+
+		textarea {
+			resize: none;
+			border: 0px;
+			font-family: arial;
+			font-size: 13;
+		}
+
+		table {
+			margin-top: 8px;
+			border-collapse: collapse;
+		}
+
+		table,
+		td,
+		th {
+			border: 1px solid black;
+		}
+
+		td {
+			padding: 2px;
+		}
+
+		.input_feed {
+			border: 0px;
+		}
+
+		#header {
+			border: 5px solid white;
+			margin-left: auto;
+			margin-right: auto
+		}
+
+		#header>tbody,
+		#header>tbody>tr>td,
+		#header>tbody>tr>td {
+			border: 0px solid white;
+			padding: 0px;
+			letter-spacing: 1;
+		}
+
+		#action_buttons>* {
+			width: 75px;
+		}
+	</style>
+</head>
+
+<body style="font-family: arial;" onload="add_img_src('company_details_logo')">
+	<div id="action_buttons"
+		style="width: 100px;position: fixed;width: 142px;height: inherit;padding: 10px;border: 3px solid #8d8b8b;box-shadow: 2px 0px 21px 4px #8e8d8d;">
+		<input type='file' accept='text/plain' onchange='openFile(event)'><br>
+		<input type="button" onclick="toJSON()" value="Save">
+	</div>
+	<div size="A4">
+		<table id="header">
+			<tr>
+				<td rowspan='5'><img id="company_details_logo" style="height:75px;margin-right: 50px;" /></td>
+				<td colspan="4">
+					<font id="company_details_name"
+						style="font-family: Segoe UI; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 100; line-height: 26.4px;">
+						Advance Instrumentation 'n' Control Systems</font>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<font style="font-weight:bold; font-size:10px;">Corres.</font>
+				</td>
+				<td colspan='3'>
+					<font id="company_details_corres" style="font-weight:normal; font-size:10px;">M1-5, UPSIDC
+						Industrial Area, Begrajpur,
+						Muzaffarnagar, UP - 251203</font>
+			</tr>
+			<tr>
+				<td>
+					<font style="font-weight:bold; font-size:10px;">E-mail</font>
+				</td>
+				<td colspan='3'>
+					<font id="company_details_email" style="font-weight:normal; font-size:10px;">rksaini9999@gmail.com
+					</font>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<font style="font-weight:bold; font-size:10px;">Phone No</font>
+				</td>
+				<td>
+					<font id="company_details_phno" style="font-weight:normal; font-size:10px;">+919837156157</font>
+				<td>
+					<font style="font-weight:bold; font-size:10px;">GSTIN</font>
+				</td>
+				<td>
+					<font id="company_details_gstin" style="font-weight:normal; font-size:10px;">09AAUFA4607R1ZM</font>
+				</td>
+				</td>
+			</tr>
+		</table>
+		<table id="podetailstbl" style="width:95%; margin-left:auto;margin-right:auto;" border="1">
+			<tbody>
+				<tr>
+					<td rowspan="3"
+						style="width: 8cm;text-align: center;font-size: 28px;font-family: arial;font-weight: bold;background: #FFA5A5;color: #8d0521;">
+						PRO-FORMA INVOICE</td>
+					<td style="width: 3cm;">PO NUMBER</td>
+					<td><input class="input_feed i_podetailstbl i_podetailstbl_po_no" type="text"></td>
+				</tr>
+				<tr>
+					<td>PO Date</td>
+					<td><input class="input_feed i_podetailstbl i_podetailstbl_po_date" type="text"></td>
+				</tr>
+				<tr>
+					<td>Vender Code</td>
+					<td><input class="input_feed i_podetailstbl i_podetailstbl_vender_code" type="text"></td>
+				</tr>
+			</tbody>
+		</table>
+		<table id="gendetailstbl" style="width:95%; margin-left:auto;margin-right:auto;" border="1">
+			<tbody>
+				<tr>
+					<td>Number</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_inv_number" type="text">
+					</td>
+					<td>Mode</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_inv_mode" type="text"></td>
+				</tr>
+				<tr>
+					<td>Date</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_date" type="text"></td>
+					<td>References</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_reference" type="text">
+					</td>
+				</tr>
+				<tr>
+					<td>State</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_inv_state" type="text">
+					</td>
+					<td>State Code</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_inv_code" type="text"></td>
+				</tr>
+				<tr style="text-align: center;background: #CCCCCC;font-weight: bold;">
+					<td colspan="4">Shipped To</td>
+					<td colspan="4">Billed To</td>
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_st_name" type="text"></td>
+					<td>Name</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_bt_name" type="text"></td>
+				</tr>
+				<tr>
+					<td>GSTIN</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl st_gstin_val i_gendetailstbl_st_gstin_val"
+							type="text"></td>
+					<td>GSTIN</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl bt_gstin_val i_gendetailstbl_bt_gstin_val"
+							type="text"></td>
+				</tr>
+				<tr>
+					<td>Address</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_st_address" type="text">
+					</td>
+					<td>Address</td>
+					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_bt_address" type="text">
+					</td>
+				</tr>
+				<tr>
+					<td>State</td>
+					<td><input class="st_state input_feed i_gendetailstbl i_gendetailstbl_st_state" type="text"></td>
+					<td>Code</td>
+					<td><input style="width:30px;"
+							class="st_state_code input_feed i_gendetailstbl i_gendetailstbl_st_state_code" type="text">
+					</td>
+					<td>State</td>
+					<td><input class="bt_state input_feed i_gendetailstbl i_gendetailstbl_bt_state" type="text"></td>
+					<td>Code</td>
+					<td><input style="width:30px;"
+							class="bt_state_code input_feed i_gendetailstbl i_gendetailstbl_bt_state_code" type="text">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table id="itmDesctbl" style="width:95%; margin-left:auto;margin-right:auto;" border="1">
+			<tbody>
+				<tr style="text-align: center;font-weight: bold;background: #CCCCCC;">
+					<td>SN</td>
+					<td>Item Description</td>
+					<td>Qty</td>
+					<td>HSN</td>
+					<td>UOM</td>
+					<td>RATE (₹)</td>
+					<td>COST (₹)</td>
+				</tr>
+				<tr>
+					<td style="width:0.5cm;"><textarea class="i_itmDesctbl_sno"
+							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
+					<td style="width: 6.8cm;"><textarea class="i_itmDesctbl_itm_desc"
+							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
+					<td style="width: 1.9cm"><textarea class="i_itmDesctbl_qty"
+							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
+					<td style="width: 1.6cm;"><textarea class="i_itmDesctbl_hsn"
+							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
+					<td style="width: 1.4cm;"><textarea class="i_itmDesctbl_uom"
+							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
+					<td style="width: 2cm;"><textarea class="i_itmDesctbl_rate"
+							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
+					<td style="width: 2.7cm;"><textarea class="i_itmDesctbl_cost"
+							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
+				</tr>
+			</tbody>
+		</table>
+		<table id="moneytbl" style="width:95%; margin-left:auto;margin-right:auto;" border="1">
+			<tbody>
+				<tr>
+					<td colspan="5" style="text-align: center;font-weight: bold;background: #CCCCCC;">Invoice Value In
+						Words</td>
+					<td colspan="3"> Forwarding Charges</td>
+					<td> ₹</td>
+					<td><input type="text" class="input_feed i_moneytbl i_moneytbl_forwardin_charge inp_number"></td>
+				</tr>
+				<tr>
+					<td colspan="5" rowspan="3" id="Invoice_Value_in_words" style="overflow: hidden;"></td>
+					<td colspan="3">Freight</td>
+					<td> ₹</td>
+					<td><input type="text" class="input_feed i_moneytbl i_moneytbl_freight inp_number"></td>
+				</tr>
+				<tr>
+					<td colspan="3">Total Cost</td>
+					<td> ₹</td>
+					<td><input type="text" class="input_feed i_moneytbl i_moneytbl_total_cost inp_number"></td>
+				</tr>
+				<tr>
+					<td>Discount</td>
+					<td>@</td>
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+							class="input_feed i_moneytbl i_moneytbl_discount_at inp_number_per"></td>
+					<td>₹</td>
+					<td><input type="text" class="input_feed i_moneytbl i_moneytbl_discount inp_number"></td>
+				</tr>
+				<tr>
+					<td colspan="5" style="width:12cm;text-align: center;font-weight: bold;background: #CCCCCC;">Terms
+						&amp; Conditions</td>
+					<td colspan="3">Taxable Value</td>
+					<td> ₹</td>
+					<td><input type="text" class="input_feed i_moneytbl i_moneytbl_taxable_value inp_number"></td>
+				</tr>
+				<tr>
+					<td colspan="5" rowspan="6"><textarea style="width: 100%;height: 116px;"></textarea></td>
+					<td>CGST</td>
+					<td>@</td>
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+							class="input_feed i_moneytbl i_moneytbl_cgst_at inp_number_per"></td>
+					<td>₹</td>
+					<td><input class="input_feed i_moneytbl i_moneytbl_cgst" type="text"></td>
+				</tr>
+				<tr>
+					<td>SGST</td>
+					<td>@</td>
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+							class="input_feed i_moneytbl i_moneytbl_sgst_at inp_number_per"></td>
+					<td>₹</td>
+					<td><input class="input_feed i_moneytbl i_moneytbl_sgst" type="text"></td>
+				</tr>
+				<tr>
+					<td>IGST</td>
+					<td>@</td>
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+							class="input_feed i_moneytbl inp_number_per i_moneytbl_igst_at"></td>
+					<td>₹</td>
+					<td><input class="input_feed i_moneytbl i_moneytbl_igst" type="text"></td>
+				</tr>
+				<tr>
+					<td colspan="3">Total GST</td>
+					<td> ₹</td>
+					<td><input class="input_feed i_moneytbl i_moneytbl_total_gst" type="text"></td>
+				</tr>
+				<tr>
+					<td colspan="3">Total</td>
+					<td> ₹</td>
+					<td><input class="input_feed i_moneytbl i_moneytbl_total" type="text"></td>
+				</tr>
+				<tr>
+					<td>Claim</td>
+					<td>@</td>
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+							class="input_feed i_moneytbl inp_number_per i_moneytbl_claim_at"></td>
+					<td>₹</td>
+					<td><input id="invoice_value" type="text" class="input_feed i_moneytbl inp_number i_moneytbl_claim">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="5" rowspan="2" style="text-align: center;font-weight: bold;background: #CCCCCC;">
+						<font style="font-size:10px;">Certified that all detilas given above are correct and true.
+							<br>for,<font>
+								<font style="font-size:12px; font-weight:bold;">ADVANCE INSTRUMENTATION 'n' CONTROL
+									SYSTEMS </font>
+							</font>
+						</font>
+					</td>
+					<td colspan="5" style="text-align: center;font-weight: bold;background: #CCCCCC;">Bank Details</td>
+				</tr>
+				<tr>
+					<td colspan="4">Account Number</td>
+					<td>507801010036044</td>
+				</tr>
+				<tr>
+					<td colspan="5" rowspan="3"></td>
+					<td colspan="4">Bank Name</td>
+					<td>Union Bank Of India</td>
+				</tr>
+				<tr>
+					<td colspan="4">Branch Name</td>
+					<td>Prem Puri</td>
+				</tr>
+				<tr>
+					<td colspan="4">IFSC number</td>
+					<td>UBIN0550787</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript">
+
+		$('.inp_number').on('change', function () {
+			var v = '' + this.value;
+			var st = "";
+			for (let i = 0; i < v.length; i++) if (isNumeric(v[i]) || v[i] === '.') st += v[i];
+			this.value = st;
+		});
+		$('.inp_number_per').on('change', function () {
+			var v = '' + this.value;
+			if (v) {
+				var st = "";
+				for (let i = 0; i < v.length; i++) if (isNumeric(v[i]) || v[i] === '.' || v[i] === '%') st += v[i];
+				if (st[st.length - 1] !== '%') st += '%';
+				this.value = st;
+			}
+		});
+		$('#invoice_value').on('change', function () {
+			if (this.value) {
+				var s = ntow(parseFloat(this.value));
+				$("#Invoice_Value_in_words").html(s);
+			} else {
+				$("#Invoice_Value_in_words").html('');
+			}
+		});
+
+		$('.st_gstin_val').on('change', function () {
+			let n = parseInt(this.value[0] + this.value[1]);
+			var state = state_from_code(n);
+			$('.st_state').val(state);
+			if (n)
+				$(".st_state_code").val('' + (this.value[0] ? this.value[0] : '') + (this.value[1] ? this.value[1] : ''));
+			else
+				$(".st_state_code").val('');
+		});
+		$('.bt_gstin_val').on('change', function () {
+			let n = parseInt(this.value[0] + this.value[1]);
+			var state = state_from_code(n);
+			$('.bt_state').val(state);
+			if (n)
+				$(".bt_state_code").val('' + (this.value[0] ? this.value[0] : '') + (this.value[1] ? this.value[1] : ''));
+			else
+				$(".bt_state_code").val('');
+		});
+		function js_print(lang, event, msg) {
+			console.log(lang, event, msg);
+		}
+
+	</script>
+</body>
+
+</html>
