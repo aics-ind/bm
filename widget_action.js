@@ -181,4 +181,10 @@ function isNumeric(n) {
 
 function add_img_src(id){
     document.getElementById(id).setAttribute("src", resources.logo.data);
+    var imgs  = $(".inr-symbol");
+    for(let i=0;i<imgs.length;i++){
+        imgs[i].setAttribute("src", resources.rupee_symbol.data);
+        imgs[i].setAttribute("style","width:"+resources.rupee_symbol.width+"px")
+    }
 }
+
