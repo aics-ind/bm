@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="widget_action.js"></script>
 	<script type="text/javascript" src="resources.js"></script>
-	<title>PRO-FORMA INVOICE</title>
+	<title>INVOICE</title>
 	<style>
 		body {
 			background: rgb(204, 204, 204);
@@ -174,18 +174,18 @@
 			<tbody>
 				<tr>
 					<td rowspan="3"
-						style="width: 8cm;text-align: center;font-size: 28px;font-family: arial;font-weight: bold;background: #FFA5A5;color: #8d0521;">
-						PRO-FORMA INVOICE</td>
+						style="width: 8cm;text-align: center;font-size: 32px;font-family: arial;font-weight: bold;background: #FFA5A5;color: #8d0521;">
+						PRO FORMA INVOICE</td>
 					<td style="width: 3cm;">PO NUMBER</td>
-					<td><input class="input_feed i_podetailstbl i_podetailstbl_po_no" type="text"></td>
+					<td><input name="PO NUMBER" class="input_feed i_podetailstbl i_podetailstbl_po_no" type="text"></td>
 				</tr>
 				<tr>
 					<td>PO Date</td>
-					<td><input class="input_feed i_podetailstbl i_podetailstbl_po_date" type="text"></td>
+					<td><input name="PO DATE" class="input_feed i_podetailstbl i_podetailstbl_po_date" type="text"></td>
 				</tr>
 				<tr>
 					<td>Vender Code</td>
-					<td><input class="input_feed i_podetailstbl i_podetailstbl_vender_code" type="text"></td>
+					<td><input name="VENDER CODE" class="input_feed i_podetailstbl i_podetailstbl_vender_code" type="text"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -193,24 +193,24 @@
 			<tbody>
 				<tr>
 					<td>Number</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_inv_number" type="text">
+					<td colspan='3'><input name="invoice number" class="input_feed i_gendetailstbl i_gendetailstbl_inv_number" type="text">
 					</td>
 					<td>Mode</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_inv_mode" type="text"></td>
+					<td colspan='3'><input name="transportation mode" class="input_feed i_gendetailstbl i_gendetailstbl_inv_mode" type="text"></td>
 				</tr>
 				<tr>
 					<td>Date</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_date" type="text"></td>
+					<td colspan='3'><input name="invoice date" class="input_feed i_gendetailstbl i_gendetailstbl_date" type="text"></td>
 					<td>References</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_reference" type="text">
+					<td colspan='3'><input name="References" class="input_feed i_gendetailstbl i_gendetailstbl_reference" type="text">
 					</td>
 				</tr>
 				<tr>
 					<td>State</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_inv_state" type="text">
+					<td colspan='3'><input name="seller state" class="input_feed i_gendetailstbl i_gendetailstbl_inv_state" type="text">
 					</td>
 					<td>State Code</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_inv_code" type="text"></td>
+					<td colspan='3'><input name="seller state code" class="input_feed i_gendetailstbl i_gendetailstbl_inv_code" type="text"></td>
 				</tr>
 				<tr style="text-align: center;background: #CCCCCC;font-weight: bold;">
 					<td colspan="4">Shipped To</td>
@@ -218,37 +218,36 @@
 				</tr>
 				<tr>
 					<td>Name</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_st_name" type="text"></td>
+					<td colspan='3'><input name="shipped to name" class="input_feed i_gendetailstbl i_gendetailstbl_st_name" type="text"></td>
 					<td>Name</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_bt_name" type="text"></td>
+					<td colspan='3'><input name="billed to name" class="input_feed i_gendetailstbl i_gendetailstbl_bt_name" type="text"></td>
 				</tr>
 				<tr>
 					<td>GSTIN</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl st_gstin_val i_gendetailstbl_st_gstin_val"
+					<td colspan='3'><input name="shipped to GSTIN" class="input_feed i_gendetailstbl st_gstin_val i_gendetailstbl_st_gstin_val"
 							type="text"></td>
 					<td>GSTIN</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl bt_gstin_val i_gendetailstbl_bt_gstin_val"
+					<td colspan='3'><input name="billed to GSTIN" class="input_feed i_gendetailstbl bt_gstin_val i_gendetailstbl_bt_gstin_val"
 							type="text"></td>
 				</tr>
 				<tr>
 					<td>Address</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_st_address" type="text">
+					<td colspan='3'><input name="shipped to address" class="input_feed i_gendetailstbl i_gendetailstbl_st_address" type="text">
 					</td>
 					<td>Address</td>
-					<td colspan='3'><input class="input_feed i_gendetailstbl i_gendetailstbl_bt_address" type="text">
+					<td colspan='3'><input name="billed to address" class="input_feed i_gendetailstbl i_gendetailstbl_bt_address" type="text">
 					</td>
 				</tr>
 				<tr>
 					<td>State</td>
-					<td><input class="st_state input_feed i_gendetailstbl i_gendetailstbl_st_state" type="text"></td>
+					<td><input name="shipped to state" class="st_state input_feed i_gendetailstbl i_gendetailstbl_st_state" type="text"></td>
 					<td>Code</td>
-					<td><input style="width:30px;"
-							class="st_state_code input_feed i_gendetailstbl i_gendetailstbl_st_state_code" type="text">
+					<td><input style="width:30px;" name ="shipped to state code" class="st_state_code input_feed i_gendetailstbl i_gendetailstbl_st_state_code" type="text">
 					</td>
 					<td>State</td>
-					<td><input class="bt_state input_feed i_gendetailstbl i_gendetailstbl_bt_state" type="text"></td>
+					<td><input name ="billed to state" class="bt_state input_feed i_gendetailstbl i_gendetailstbl_bt_state" type="text"></td>
 					<td>Code</td>
-					<td><input style="width:30px;"
+					<td><input style="width:30px;" name="billed to state code"
 							class="bt_state_code input_feed i_gendetailstbl i_gendetailstbl_bt_state_code" type="text">
 					</td>
 				</tr>
@@ -266,19 +265,19 @@
 					<td>COST (<img class="inr-symbol" />)</td>
 				</tr>
 				<tr>
-					<td style="width:0.5cm;"><textarea class="i_itmDesctbl_sno"
+					<td style="width:0.5cm;"><textarea class="i_itmDesctbl_sno" name="srno"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 6.8cm;"><textarea class="i_itmDesctbl_itm_desc"
+					<td style="width: 6.8cm;"><textarea class="i_itmDesctbl_itm_desc" name="item description"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 1.9cm"><textarea class="i_itmDesctbl_qty"
+					<td style="width: 1.9cm"><textarea class="i_itmDesctbl_qty" name="quantity"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 1.6cm;"><textarea class="i_itmDesctbl_hsn"
+					<td style="width: 1.6cm;"><textarea class="i_itmDesctbl_hsn" name="hsn code"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 1.4cm;"><textarea class="i_itmDesctbl_uom"
+					<td style="width: 1.4cm;"><textarea class="i_itmDesctbl_uom" name="uom"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 2cm;"><textarea class="i_itmDesctbl_rate"
+					<td style="width: 2cm;"><textarea class="i_itmDesctbl_rate" name="rate"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 2.7cm;"><textarea class="i_itmDesctbl_cost"
+					<td style="width: 2.7cm;"><textarea class="i_itmDesctbl_cost" name="cost"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
 				</tr>
 			</tbody>
@@ -290,23 +289,23 @@
 						Words</td>
 					<td colspan="3"> Forwarding Charges</td>
 					<td> <img class="inr-symbol" /></td>
-					<td><input type="text" class="input_feed i_moneytbl i_moneytbl_forwardin_charge inp_number"></td>
+					<td><input name="Forwarding Charges" type="text" class="input_feed i_moneytbl i_moneytbl_forwardin_charge inp_number"></td>
 				</tr>
 				<tr>
 					<td colspan="5" rowspan="3" id="Invoice_Value_in_words" style="overflow: hidden;"></td>
 					<td colspan="3">Freight</td>
 					<td> <img class="inr-symbol" /></td>
-					<td><input type="text" class="input_feed i_moneytbl i_moneytbl_freight inp_number"></td>
+					<td><input type="text" name="Freight" class="input_feed i_moneytbl i_moneytbl_freight inp_number"></td>
 				</tr>
 				<tr>
 					<td colspan="3">Total Cost</td>
 					<td> <img class="inr-symbol" /></td>
-					<td><input type="text" class="input_feed i_moneytbl i_moneytbl_total_cost inp_number"></td>
+					<td><input type="text" name="Total Cost" class="input_feed i_moneytbl i_moneytbl_total_cost inp_number"></td>
 				</tr>
 				<tr>
 					<td>Discount</td>
 					<td>@</td>
-					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;" name="discount %"
 							class="input_feed i_moneytbl i_moneytbl_discount_at inp_number_per"></td>
 					<td><img class="inr-symbol" /></td>
 					<td><input type="text" class="input_feed i_moneytbl i_moneytbl_discount inp_number"></td>
@@ -316,50 +315,50 @@
 						&amp; Conditions</td>
 					<td colspan="3">Taxable Value</td>
 					<td> <img class="inr-symbol" /></td>
-					<td><input type="text" class="input_feed i_moneytbl i_moneytbl_taxable_value inp_number"></td>
+					<td><input type="text" name="Taxable Value" class="input_feed i_moneytbl i_moneytbl_taxable_value inp_number"></td>
 				</tr>
 				<tr>
 					<td colspan="5" rowspan="6"><textarea style="width: 100%;height: 116px;"></textarea></td>
 					<td>CGST</td>
 					<td>@</td>
-					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;" name="CGST %"
 							class="input_feed i_moneytbl i_moneytbl_cgst_at inp_number_per"></td>
 					<td><img class="inr-symbol" /></td>
-					<td><input class="input_feed i_moneytbl i_moneytbl_cgst" type="text"></td>
+					<td><input name="CGST" class="input_feed i_moneytbl i_moneytbl_cgst" type="text"></td>
 				</tr>
 				<tr>
 					<td>SGST</td>
 					<td>@</td>
-					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;" name="SGST %"
 							class="input_feed i_moneytbl i_moneytbl_sgst_at inp_number_per"></td>
 					<td><img class="inr-symbol" /></td>
-					<td><input class="input_feed i_moneytbl i_moneytbl_sgst" type="text"></td>
+					<td><input name="SGST" class="input_feed i_moneytbl i_moneytbl_sgst" type="text"></td>
 				</tr>
 				<tr>
 					<td>IGST</td>
 					<td>@</td>
-					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;" name="IGST %"
 							class="input_feed i_moneytbl inp_number_per i_moneytbl_igst_at"></td>
 					<td><img class="inr-symbol" /></td>
-					<td><input class="input_feed i_moneytbl i_moneytbl_igst" type="text"></td>
+					<td><input name="IGST" class="input_feed i_moneytbl i_moneytbl_igst" type="text"></td>
 				</tr>
 				<tr>
 					<td colspan="3">Total GST</td>
 					<td> <img class="inr-symbol" /></td>
-					<td><input class="input_feed i_moneytbl i_moneytbl_total_gst" type="text"></td>
+					<td><input name="Total GST" class="input_feed i_moneytbl i_moneytbl_total_gst" type="text"></td>
 				</tr>
 				<tr>
 					<td colspan="3">Total</td>
 					<td> <img class="inr-symbol" /></td>
-					<td><input class="input_feed i_moneytbl i_moneytbl_total" type="text"></td>
+					<td><input name="total" class="input_feed i_moneytbl i_moneytbl_total" type="text"></td>
 				</tr>
 				<tr>
 					<td>Claim</td>
 					<td>@</td>
-					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;" name="claim %"
 							class="input_feed i_moneytbl inp_number_per i_moneytbl_claim_at"></td>
 					<td><img class="inr-symbol" /></td>
-					<td><input id="invoice_value" type="text" class="input_feed i_moneytbl inp_number i_moneytbl_claim">
+					<td><input name="claim" id="invoice_value" type="text" class="input_feed i_moneytbl inp_number i_moneytbl_claim">
 					</td>
 				</tr>
 				<tr>

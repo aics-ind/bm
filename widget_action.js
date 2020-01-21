@@ -24,11 +24,14 @@ function toJSON() {
         let class_list = s[i].classList;
         for (let j = 0; j < class_list.length; j++) {
             if (class_list[j].match(/i_.*_.*/i) !== null) {
-                obj[class_list[j]] = document.getElementsByClassName(class_list[j])[0].value;
+                obj[class_list[j]] = { 
+                    'value':document.getElementsByClassName(class_list[j])[0].value,
+                    'name': document.getElementsByClassName(class_list[j])[0].name
+                }
             }
         }
     }
-    //console.log(obj);
+    console.log(obj);
     let filename = prompt("File name");
     if (filename)
         download(JSON.stringify(obj), filename, "text/plain");
@@ -45,7 +48,7 @@ function fromJSON(oobj) {
         try{
             console.log("Filling element '"+keys[i]+"'");
             let aa = document.getElementsByClassName(keys[i])[0];
-            if(aa) aa.value = obj[keys[i]];
+            if(aa) aa.value = obj[keys[i]]['value'];
         }catch{
             console.log("Failed at '"+keys[i]+"'");
         }

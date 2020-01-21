@@ -2,7 +2,7 @@
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<title>challan </title>
+	<title>CHALLAN </title>
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="widget_action.js"></script>
 	<script type="text/javascript" src="resources.js"></script>
@@ -169,15 +169,15 @@
 						style="width: 8cm;text-align: center;font-size: 32px;font-family: arial;font-weight: bold;background: #FFA5A5;color: #8d0521;">
 						CHALLAN</td>
 					<td style="width: 3cm;">PO NUMBER</td>
-					<td><input class="input_feed i_podetailstbl i_podetailstbl_po_no" type="text"></td>
+					<td><input name="PO NUMBER" class="input_feed i_podetailstbl i_podetailstbl_po_no" type="text"></td>
 				</tr>
 				<tr>
 					<td>PO Date</td>
-					<td><input class="input_feed i_podetailstbl i_podetailstbl_po_date" type="text"></td>
+					<td><input name="PO DATE" class="input_feed i_podetailstbl i_podetailstbl_po_date" type="text"></td>
 				</tr>
 				<tr>
 					<td>Vender Code</td>
-					<td><input class="input_feed i_podetailstbl i_podetailstbl_vender_code" type="text"></td>
+					<td><input name="VENDER CODE" class="input_feed i_podetailstbl i_podetailstbl_vender_code" type="text"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -185,25 +185,25 @@
 			<tbody>
 				<tr>
 					<td>Challan Number</td>
-					<td><input class="input_feed i_gendetailstbl i_gendetailstbl_chl_number" type="text"></td>
+					<td><input name="challan number" class="input_feed i_gendetailstbl i_gendetailstbl_chl_number" type="text"></td>
 					<td>Transport Mode</td>
-					<td><input class="input_feed i_gendetailstbl i_gendetailstbl_chl_mode" type="text"></td>
+					<td><input name="transport mode" class="input_feed i_gendetailstbl i_gendetailstbl_chl_mode" type="text"></td>
 				</tr>
 				<tr>
 					<td>Challan Date</td>
-					<td><input class="input_feed i_gendetailstbl i_gendetailstbl_chl_date" type="text"></td>
+					<td><input name="challan date" class="input_feed i_gendetailstbl i_gendetailstbl_chl_date" type="text"></td>
 					<td>Vehicle Number</td>
-					<td><input class="input_feed i_gendetailstbl i_gendetailstbl_veh_no" type="text"></td>
+					<td><input name="vehicle number" class="input_feed i_gendetailstbl i_gendetailstbl_veh_no" type="text"></td>
 				</tr>
 				<tr>
 					<td>State</td>
-					<td> <input class="input_feed i_gendetailstbl i_gendetailstbl_inv_state" type="text"> </td>
+					<td> <input name="seller state" class="input_feed i_gendetailstbl i_gendetailstbl_inv_state" type="text"> </td>
 					<td>Date of Supply</td>
-					<td><input class="input_feed i_gendetailstbl i_gendetailstbl_date_of_supply" type="text"></td>
+					<td><input name="date of supply" class="input_feed i_gendetailstbl i_gendetailstbl_date_of_supply" type="text"></td>
 				</tr>
 				<tr>
 					<td>State Code</td>
-					<td><input type="text" class="input_feed i_gendetailstbl inp_number i_gendetailstbl_inv_code"></td>
+					<td><input name="seller state code" type="text" class="input_feed i_gendetailstbl inp_number i_gendetailstbl_inv_code"></td>
 					<td>Place of Supply</td>
 					<td><input class="input_feed i_gendetailstbl i_gendetailstbl_place_of_supply" type="text"></td>
 				</tr>
@@ -212,26 +212,26 @@
 				</tr>
 				<tr>
 					<td>Name</td>
-					<td colspan="3"><input class="input_feed i_gendetailstbl i_gendetailstbl_st_name" type="text"></td>
+					<td colspan="3"><input name="shipped to name" class="input_feed i_gendetailstbl i_gendetailstbl_st_name" type="text"></td>
 				</tr>
 				<tr>
 					<td>GSTIN</td>
-					<td colspan="3"><input class="input_feed i_gendetailstbl st_gstin_val i_gendetailstbl_st_gstin_val"
+					<td colspan="3"><input name="shipped to GSTIN" class="input_feed i_gendetailstbl st_gstin_val i_gendetailstbl_st_gstin_val"
 							type="text"></td>
 				</tr>
 				<tr>
 					<td>Address</td>
-					<td colspan="3"><input class="input_feed i_gendetailstbl i_gendetailstbl_st_address" type="text">
+					<td colspan="3"><input name="shipped to address" class="input_feed i_gendetailstbl i_gendetailstbl_st_address" type="text">
 					</td>
 				</tr>
 				<tr>
 					<td>State</td>
-					<td colspan="3"><input class="st_state input_feed i_gendetailstbl i_gendetailstbl_st_state"
+					<td colspan="3"><input name="shipped to state" class="st_state input_feed i_gendetailstbl i_gendetailstbl_st_state"
 							type="text"></td>
 				</tr>
 				<tr>
 					<td>State Code</td>
-					<td colspan="3"><input type="text"
+					<td colspan="3"><input type="text" name ="shipped to state code"
 							class="st_state_code input_feed i_gendetailstbl i_gendetailstbl_st_state_code inp_number">
 					</td>
 				</tr>
@@ -249,19 +249,19 @@
 					<td>COST (<img class="inr-symbol" />)</td>
 				</tr>
 				<tr>
-					<td style="width:0.5cm;"><textarea class="i_itmDesctbl_sno"
+					<td style="width:0.5cm;"><textarea class="i_itmDesctbl_sno" name="srno"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 6.8cm;"><textarea class="i_itmDesctbl_itm_desc"
+					<td style="width: 6.8cm;"><textarea class="i_itmDesctbl_itm_desc" name="item description"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 1.9cm"><textarea class="i_itmDesctbl_qty"
+					<td style="width: 1.9cm"><textarea class="i_itmDesctbl_qty" name="quantity"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 1.6cm;"><textarea class="i_itmDesctbl_hsn"
+					<td style="width: 1.6cm;"><textarea class="i_itmDesctbl_hsn" name="hsn code"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 1.4cm;"><textarea class="i_itmDesctbl_uom"
+					<td style="width: 1.4cm;"><textarea class="i_itmDesctbl_uom" name="uom"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 2cm;"><textarea class="i_itmDesctbl_rate"
+					<td style="width: 2cm;"><textarea class="i_itmDesctbl_rate" name="rate"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
-					<td style="width: 2.7cm;"><textarea class="i_itmDesctbl_cost"
+					<td style="width: 2.7cm;"><textarea class="i_itmDesctbl_cost" name="cost"
 							style="width:100%;padding:0px; height:7.3cm; margin:0px;"></textarea></td>
 				</tr>
 			</tbody>
@@ -271,24 +271,24 @@
 				<tr>
 					<td colspan="5" style="text-align: center;font-weight: bold;background: #CCCCCC;">Challan Value In
 						Words</td>
-					<td colspan="4"><input class="input_feed i_moneytbl" type="text"></td>
-					<td><input class="input_feed i_moneytbl" type="text"></td>
+					<td colspan="4"><input name="field_a name" class="input_feed i_moneytbl" type="text"></td>
+					<td><input name="field_a value" class="input_feed i_moneytbl" type="text"></td>
 					<!--<td colspan="3"> Forwarding Charges</td> <td> <img class="inr-symbol" /></td> <td><input type="text" class="input_feed i_moneytbl inp_number"></td> -->
 				</tr>
 				<tr>
 					<td colspan="5" rowspan="3" id="challan_value_in_words" style="overflow: hidden;"></td>
 					<!--<td colspan="3">Freight</td> <td> <img class="inr-symbol" /></td> <td><input type="text" class="input_feed i_moneytbl inp_number"></td>-->
-					<td colspan="4"><input class="input_feed i_moneytbl" type="text"></td>
-					<td><input class="input_feed i_moneytbl" type="text"></td>
+					<td colspan="4"><input name="field_b name" class="input_feed i_moneytbl" type="text"></td>
+					<td><input name="field_b value" class="input_feed i_moneytbl" type="text"></td>
 				</tr>
 				<tr>
-					<td colspan="4"><input class="input_feed i_moneytbl" type="text"></td>
-					<td><input class="input_feed i_moneytbl" type="text"></td>
+					<td colspan="4"><input name="field_c name" class="input_feed i_moneytbl" type="text"></td>
+					<td><input name="field_c value" class="input_feed i_moneytbl" type="text"></td>
 					<!--<td colspan="3">Total Cost</td> <td> <img class="inr-symbol" /></td> <td><input type="text" class="input_feed i_moneytbl inp_number"></td> -->
 				</tr>
 				<tr>
-					<td colspan="4"><input class="input_feed i_moneytbl" type="text"></td>
-					<td><input class="input_feed i_moneytbl" type="text"></td>
+					<td colspan="4"><input name="field_d name" class="input_feed i_moneytbl" type="text"></td>
+					<td><input name="field_d value" class="input_feed i_moneytbl" type="text"></td>
 					<!--<td>Discount</td> <td>@</td> <td style="width: 2cm;"><input type="text" style="width: 2cm;" class="input_feed i_moneytbl inp_number_per"></td> <td><img class="inr-symbol" /></td> <td><input type="text" class="input_feed i_moneytbl inp_number"></td> -->
 				</tr>
 				<tr>
@@ -296,42 +296,42 @@
 						&amp; Conditions</td>
 					<td colspan="3">Taxable Value</td>
 					<td> <img class="inr-symbol" /></td>
-					<td><input type="text" class="input_feed i_moneytbl inp_number i_moneytbl_taxable_value"></td>
+					<td><input type="text"  name="Taxable Value"  class="input_feed i_moneytbl inp_number i_moneytbl_taxable_value"></td>
 				</tr>
 				<tr>
 					<td colspan="5" rowspan="5"><textarea style="width: 100%;height: 116px;"></textarea></td>
 					<td>CGST</td>
 					<td>@</td>
-					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;" name="CGST %"
 							class="input_feed i_moneytbl i_moneytbl_cgst_at inp_number_per"></td>
 					<td><img class="inr-symbol" /></td>
-					<td><input class="input_feed i_moneytbl i_moneytbl_cgst" type="text"></td>
+					<td><input name="CGST" class="input_feed i_moneytbl i_moneytbl_cgst" type="text"></td>
 				</tr>
 				<tr>
 					<td>SGST</td>
 					<td>@</td>
-					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;" name="SGST %"
 							class="input_feed i_moneytbl inp_number_per  i_moneytbl_sgst_at"></td>
 					<td><img class="inr-symbol" /></td>
-					<td><input class="input_feed i_moneytbl i_moneytbl_sgst" type="text"></td>
+					<td><input name="SGST" class="input_feed i_moneytbl i_moneytbl_sgst" type="text"></td>
 				</tr>
 				<tr>
 					<td>IGST</td>
 					<td>@</td>
-					<td style="width: 2cm;"><input type="text" style="width: 2cm;"
+					<td style="width: 2cm;"><input type="text" style="width: 2cm;" name="IGST %"
 							class="input_feed i_moneytbl i_moneytbl_igst_at inp_number_per"></td>
 					<td><img class="inr-symbol" /></td>
-					<td><input class="input_feed i_moneytbl i_moneytbl_igst" type="text"></td>
+					<td><input name="IGST" class="input_feed i_moneytbl i_moneytbl_igst" type="text"></td>
 				</tr>
 				<tr>
 					<td colspan="3">Total GST</td>
 					<td> <img class="inr-symbol" /></td>
-					<td><input class="input_feed i_moneytbl i_moneytbl_total_gst" type="text"></td>
+					<td><input name="Total GST" class="input_feed i_moneytbl i_moneytbl_total_gst" type="text"></td>
 				</tr>
 				<tr>
 					<td colspan="3">Challan Value</td>
 					<td> <img class="inr-symbol" /></td>
-					<td><input class="input_feed i_moneytbl i_moneytbl_total" id="challan_value" type="text"></td>
+					<td><input name="challan value" class="input_feed i_moneytbl i_moneytbl_total" id="challan_value" type="text"></td>
 				</tr>
 				<tr>
 					<td colspan="5" rowspan="2" style="text-align: center;font-weight: bold;background: #CCCCCC;">
