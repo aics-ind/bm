@@ -243,7 +243,7 @@ function auto_calculate() {
             document.getElementsByClassName("i_moneytbl_discount")[0].value = discount;
         taxable_value = total_cost - (discount ? discount : 0);
         if (taxable_value)
-            taxable_valuedocument.getElementsByClassName("i_moneytbl_taxable_value")[0].value = taxable_value;
+            document.getElementsByClassName("i_moneytbl_taxable_value")[0].value = taxable_value;
     } catch{
         taxable_value = parseFloat(document.getElementsByClassName("i_moneytbl_taxable_value")[0].value);
     }
