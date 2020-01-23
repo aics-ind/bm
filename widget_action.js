@@ -241,7 +241,7 @@ function auto_calculate() {
         let discount = total_cost * dsc_per / 100;
         if (dsc_per)
             document.getElementsByClassName("i_moneytbl_discount")[0].value = discount;
-        taxable_value = total_cost - discount;
+        taxable_value = total_cost - (discount ? discount : 0);
         if (taxable_value)
             taxable_valuedocument.getElementsByClassName("i_moneytbl_taxable_value")[0].value = taxable_value;
     } catch{
@@ -272,5 +272,5 @@ function auto_calculate() {
             document.getElementsByClassName("i_moneytbl_claim")[0].value = claim;
             document.getElementById("Invoice_Value_in_words").innerHTML = ntow(claim)
         }
-    }catch{}
+    } catch{ }
 }
