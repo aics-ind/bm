@@ -237,12 +237,13 @@ function auto_calculate() {
     try {
         let dsc_per = parseFloat(document.getElementsByClassName("i_moneytbl_discount_at")[0].value);
         let total_cost = parseFloat(document.getElementsByClassName("i_moneytbl_total_cost")[0].value);
-        if (!total_cost) return;
+        if (Number.isNaN(total_cost)) return;
         let discount = total_cost * dsc_per / 100;
-        if (dsc_per)
+        if (!Number.isNaN(discount)) {
             document.getElementsByClassName("i_moneytbl_discount")[0].value = discount;
+        }
         taxable_value = total_cost - (discount ? discount : 0);
-        if (taxable_value)
+        if (!Number.isNaN(taxable_value))
             document.getElementsByClassName("i_moneytbl_taxable_value")[0].value = taxable_value;
     } catch{
         taxable_value = parseFloat(document.getElementsByClassName("i_moneytbl_taxable_value")[0].value);
@@ -253,22 +254,22 @@ function auto_calculate() {
     let cgst = cgst_per * taxable_value / 100;
     let sgst = sgst_per * taxable_value / 100;
     let igst = igst_per * taxable_value / 100;
-    if (cgst_per)
+    if (!Number.isNaN(cgst))
         document.getElementsByClassName("i_moneytbl_cgst")[0].value = cgst;
-    if (sgst_per)
+    if (!Number.isNaN(sgst))
         document.getElementsByClassName("i_moneytbl_sgst")[0].value = sgst;
-    if (igst_per)
+    if (!Number.isNaN(igst))
         document.getElementsByClassName("i_moneytbl_igst")[0].value = igst;
     let total_tax = (cgst ? cgst : 0) + (sgst ? sgst : 0) + (igst ? igst : 0);
-    if (cgst || sgst || igst)
+    if ((!Number.isNaN(cgst)) || (!Number.isNaN(sgst)) || (!Number.isNaN(igst)))
         document.getElementsByClassName("i_moneytbl_total_gst")[0].value = total_tax;
     let total = total_tax + taxable_value;
-    if (total)
+    if (!Number.isNaN(total))
         document.getElementsByClassName("i_moneytbl_total")[0].value = total;
     try {
         let claim_per = parseFloat(document.getElementsByClassName("i_moneytbl_claim_at")[0].value);
         let claim = total * claim_per / 100;
-        if (claim) {
+        if (!Number.isNaN(claim)) {
             document.getElementsByClassName("i_moneytbl_claim")[0].value = claim;
             document.getElementById("Invoice_Value_in_words").innerHTML = ntow(claim)
         }
