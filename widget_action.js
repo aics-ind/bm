@@ -24,8 +24,8 @@ function toJSON() {
         let class_list = s[i].classList;
         for (let j = 0; j < class_list.length; j++) {
             if (class_list[j].match(/i_.*_.*/i) !== null) {
-                obj[class_list[j]] = { 
-                    'value':document.getElementsByClassName(class_list[j])[0].value,
+                obj[class_list[j]] = {
+                    'value': document.getElementsByClassName(class_list[j])[0].value,
                     'name': document.getElementsByClassName(class_list[j])[0].name
                 }
             }
@@ -45,12 +45,12 @@ function fromJSON(oobj) {
     var keys = Object.keys(obj);
     //console.log(obj);
     for (let i = 0; i < keys.length; i++) {
-        try{
-            console.log("Filling element '"+keys[i]+"'");
+        try {
+            console.log("Filling element '" + keys[i] + "'");
             let aa = document.getElementsByClassName(keys[i])[0];
-            if(aa) aa.value = obj[keys[i]]['value'];
-        }catch{
-            console.log("Failed at '"+keys[i]+"'");
+            if (aa) aa.value = obj[keys[i]]['value'];
+        } catch{
+            console.log("Failed at '" + keys[i] + "'");
         }
     }
     $('#challan_value').trigger("change");
@@ -182,12 +182,95 @@ function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-function add_img_src(id){
+function add_img_src(id) {
     document.getElementById(id).setAttribute("src", resources.logo.data);
-    var imgs  = $(".inr-symbol");
-    for(let i=0;i<imgs.length;i++){
+    var imgs = $(".inr-symbol");
+    for (let i = 0; i < imgs.length; i++) {
         imgs[i].setAttribute("src", resources.rupee_symbol.data);
-        imgs[i].setAttribute("style","width:"+resources.rupee_symbol.width+"px")
+        imgs[i].setAttribute("style", "width:" + resources.rupee_symbol.width + "px")
     }
 }
 
+/**
+ * 
+ * @param {object} obj structure:
+ * {
+ *  "OPERANDS":[operand_1, operand_2,...,operand_n],
+ *  "OPERATION" : "ADD"{or "MUL", "DIV", "SUB"},
+ *  "TARGET": "target"
+ * }  
+ * here operand_n is a string containing the ID of the elements which contains the value on which the 
+ * operation has to be done on
+ * 
+ * OPERATION tells which operation has to be peeformed.
+ * 
+ * TARGET is a string which contains the id of that element where the result has to be saved.
+ */
+
+
+function ExCalculate(obj) {
+    if (typeof (obj) !== "object") return;
+    if (obj["OPERANDS"].length < 2) return;
+    // get the operands
+    var oprnds = [];
+    for (let i = 0; i < obj["OPERANDS"].length; i++) {
+        oprnds[i] = parseFloat(document.getElementById(obj["OPERANDS"][i]).value);
+    }
+    // calculated result
+    var res = 0;
+    //now look for what type of operation is being asked.
+    switch (obj["OPERATION"]) {
+        case "ADD": for (let i = 0; i < oprnds.length; i++) res += oprnds[i]; break;
+        case "SUB": res = oprnds[0] - oprnds[1]; break;
+        case "MUL": {
+            res = 1;
+            for (let i = 0; i < oprnds.length; i++) res *= oprnds[i];
+        } break;
+        case "DIV": res = oprnds[0] / oprnds[1]; break;
+    }
+    // save the result in the target element
+    document.getElementById(obj["TARGET"]).value = '' + res;
+}
+
+function auto_calculate() {
+    let taxable_value;
+    try {
+        let dsc_per = parseFloat(document.getElementsByClassName("i_moneytbl_discount_at")[0].value);
+        let total_cost = parseFloat(document.getElementsByClassName("i_moneytbl_total_cost")[0].value);
+        if (!total_cost) return;
+        let discount = total_cost * dsc_per / 100;
+        if (dsc_per)
+            document.getElementsByClassName("i_moneytbl_discount")[0].value = discount;
+        taxable_value = total_cost - discount;
+        if (taxable_value)
+            taxable_valuedocument.getElementsByClassName("i_moneytbl_taxable_value")[0].value = taxable_value;
+    } catch{
+        taxable_value = parseFloat(document.getElementsByClassName("i_moneytbl_taxable_value")[0].value);
+    }
+    let cgst_per = parseFloat(document.getElementsByClassName("i_moneytbl_cgst_at")[0].value);
+    let sgst_per = parseFloat(document.getElementsByClassName("i_moneytbl_sgst_at")[0].value);
+    let igst_per = parseFloat(document.getElementsByClassName("i_moneytbl_igst_at")[0].value);
+    let cgst = cgst_per * taxable_value / 100;
+    let sgst = sgst_per * taxable_value / 100;
+    let igst = igst_per * taxable_value / 100;
+    if (cgst_per)
+        document.getElementsByClassName("i_moneytbl_cgst")[0].value = cgst;
+    if (sgst_per)
+        document.getElementsByClassName("i_moneytbl_sgst")[0].value = sgst;
+    if (igst_per)
+        document.getElementsByClassName("i_moneytbl_igst")[0].value = igst;
+    let total_tax = (cgst ? cgst : 0) + (sgst ? sgst : 0) + (igst ? igst : 0);
+    if (cgst || sgst || igst)
+        document.getElementsByClassName("i_moneytbl_total_gst")[0].value = total_tax;
+    let total = total_tax + taxable_value;
+    if (total)
+        document.getElementsByClassName("i_moneytbl_total")[0].value = total;
+    try {
+        let claim_per = parseFloat(document.getElementsByClassName("i_moneytbl_claim_at")[0].value);
+        let claim = total * claim_per / 100;
+        if (claim) {
+            document.getElementsByClassName("i_moneytbl_claim")[0].value = claim;
+            document.getElementById("Invoice_Value_in_words").innerHTML = ntow(claim)
+        }
+    }catch{}
+}
