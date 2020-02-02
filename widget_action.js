@@ -244,7 +244,7 @@ function auto_calculate() {
         }
         taxable_value = total_cost - (discount ? discount : 0);
         if (!Number.isNaN(taxable_value))
-            document.getElementsByClassName("i_moneytbl_taxable_value")[0].value = taxable_value;
+            document.getElementsByClassName("i_moneytbl_taxable_value")[0].value = taxable_value.toFixed(2);
     } catch{
         taxable_value = parseFloat(document.getElementsByClassName("i_moneytbl_taxable_value")[0].value);
     }
@@ -255,22 +255,22 @@ function auto_calculate() {
     let sgst = sgst_per * taxable_value / 100;
     let igst = igst_per * taxable_value / 100;
     if (!Number.isNaN(cgst))
-        document.getElementsByClassName("i_moneytbl_cgst")[0].value = cgst;
+        document.getElementsByClassName("i_moneytbl_cgst")[0].value = cgst.toFixed(2);
     if (!Number.isNaN(sgst))
-        document.getElementsByClassName("i_moneytbl_sgst")[0].value = sgst;
+        document.getElementsByClassName("i_moneytbl_sgst")[0].value = sgst.toFixed(2);
     if (!Number.isNaN(igst))
-        document.getElementsByClassName("i_moneytbl_igst")[0].value = igst;
+        document.getElementsByClassName("i_moneytbl_igst")[0].value = igst.toFixed(2);
     let total_tax = (cgst ? cgst : 0) + (sgst ? sgst : 0) + (igst ? igst : 0);
     if ((!Number.isNaN(cgst)) || (!Number.isNaN(sgst)) || (!Number.isNaN(igst)))
-        document.getElementsByClassName("i_moneytbl_total_gst")[0].value = total_tax;
+        document.getElementsByClassName("i_moneytbl_total_gst")[0].value = total_tax.toFixed(2);
     let total = total_tax + taxable_value;
     if (!Number.isNaN(total))
-        document.getElementsByClassName("i_moneytbl_total")[0].value = total;
+        document.getElementsByClassName("i_moneytbl_total")[0].value = total.toFixed(2);
     try {
         let claim_per = parseFloat(document.getElementsByClassName("i_moneytbl_claim_at")[0].value);
         let claim = total * claim_per / 100;
         if (!Number.isNaN(claim)) {
-            document.getElementsByClassName("i_moneytbl_claim")[0].value = claim;
+            document.getElementsByClassName("i_moneytbl_claim")[0].value = claim.toFixed(2);
             document.getElementById("Invoice_Value_in_words").innerHTML = ntow(claim)
         }
     } catch{ }
