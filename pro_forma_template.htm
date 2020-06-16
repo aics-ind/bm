@@ -74,7 +74,8 @@
 <body style="font-family: arial;" onload="add_img_src('company_details_logo')">
 	<div id="action_buttons"
 		style="position: fixed;height: inherit;padding: 10px;border: 3px solid #8d8b8b;box-shadow: 2px 0px 21px 4px #8e8d8d;">
-		<input type='file' accept='text/plain' onchange='openFile(event)'><br>
+		<input type='file' accept='text/plain' onchange='openFile(event)'><br><br/>
+		<input type="button" onclick="auto_calculate()" value="Refresh"><br/><br/>
 		<input type="button" onclick="toJSON()" value="Save">
 	</div>
 	<div size="A4">
@@ -232,7 +233,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<table id="moneytbl" style="width:95%; margin-left:auto;margin-right:auto;" border="1" onchange="auto_calculate()">
+		<table id="moneytbl" style="width:95%; margin-left:auto;margin-right:auto;" border="1">
 			<tbody>
 				<tr>
 					<td colspan="5" style="text-align: center;font-weight: bold;background: #CCCCCC;">Invoice Value In
