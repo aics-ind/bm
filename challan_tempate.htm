@@ -240,7 +240,7 @@
 					<!--<td colspan="3"> Forwarding Charges</td> <td> <img class="inr-symbol" /></td> <td><input type="text" class="input_feed i_moneytbl inp_number"></td> -->
 				</tr>
 				<tr>
-					<td colspan="5" rowspan="3" id="challan_value_in_words" style="overflow: hidden;"></td>
+					<td colspan="5" rowspan="3" id="value_in_words" style="overflow: hidden;"></td>
 					<!--<td colspan="3">Freight</td> <td> <img class="inr-symbol" /></td> <td><input type="text" class="input_feed i_moneytbl inp_number"></td>-->
 					<td colspan="4"><input name="field_b name" class="input_feed i_moneytbl" type="text"></td>
 					<td><input name="field_b value" class="input_feed i_moneytbl" type="text"></td>
@@ -349,14 +349,14 @@
 				this.value = st;
 			}
 		});
-		$('#challan_value').on('change', function () {
-			if (this.value) {
-				var s = ntow(parseFloat(this.value));
-				$("#challan_value_in_words").html(s);
-			} else {
-				$("#challan_value_in_words").html('');
-			}
-		});
+		// $('#challan_value').on('change', function () {
+		// 	if (this.value) {
+		// 		var s = ntow(parseFloat(this.value));
+		// 		$("#challan_value_in_words").html(s);
+		// 	} else {
+		// 		$("#challan_value_in_words").html('');
+		// 	}
+		// });
 
 		$('.st_gstin_val').on('change', function () {
 			let n = parseInt(this.value[0] + this.value[1]);

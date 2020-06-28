@@ -249,7 +249,7 @@
 					<td><input name="Forwarding Charges" type="text" class="input_feed i_moneytbl i_moneytbl_forwardin_charge inp_number"></td>
 				</tr>
 				<tr>
-					<td colspan="5" rowspan="3" id="Invoice_Value_in_words" style="overflow: hidden;"></td>
+					<td colspan="5" rowspan="3" id="value_in_words" style="overflow: hidden;"></td>
 					<td colspan="3">Freight</td>
 					<td> <img class="inr-symbol" /></td>
 					<td><input type="text" name="Freight" class="input_feed i_moneytbl i_moneytbl_freight inp_number"></td>
@@ -366,14 +366,14 @@
 				this.value = st;
 			}
 		});
-		$('#invoice_value').on('change', function () {
-			if (this.value) {
-				var s = ntow(parseFloat(this.value));
-				$("#Invoice_Value_in_words").html(s);
-			} else {
-				$("#Invoice_Value_in_words").html('');
-			}
-		});
+		// $('#invoice_value').on('change', function () {
+		// 	if (this.value) {
+		// 		var s = ntow(parseFloat(this.value));
+		// 		$("#Invoice_Value_in_words").html(s);
+		// 	} else {
+		// 		$("#Invoice_Value_in_words").html('');
+		// 	}
+		// });
 
 		$('.st_gstin_val').on('change', function () {
 			let n = parseInt(this.value[0] + this.value[1]);

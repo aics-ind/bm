@@ -264,14 +264,17 @@ function auto_calculate() {
     if ((!Number.isNaN(cgst)) || (!Number.isNaN(sgst)) || (!Number.isNaN(igst)))
         document.getElementsByClassName("i_moneytbl_total_gst")[0].value = total_tax.toFixed(2);
     let total = total_tax + taxable_value;
-    if (!Number.isNaN(total))
+    if (!Number.isNaN(total)){
         document.getElementsByClassName("i_moneytbl_total")[0].value = total.toFixed(2);
+        document.getElementById("value_in_words").innerHTML = ntow(parseFloat(total.toFixed(2)));
+    }
     try {
         let claim_per = parseFloat(document.getElementsByClassName("i_moneytbl_claim_at")[0].value);
         let claim = total * claim_per / 100;
         if (!Number.isNaN(claim)) {
             document.getElementsByClassName("i_moneytbl_claim")[0].value = claim.toFixed(2);
-            document.getElementById("Invoice_Value_in_words").innerHTML = ntow(claim)
+            document.getElementById("value_in_words").innerHTML = ntow(claim)
         }
     } catch{ }
+
 }
